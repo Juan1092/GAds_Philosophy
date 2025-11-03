@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads Campaign Philosophy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, #8b292f 0%, #5a1b1f 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #eee8dc;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            padding: 50px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #8b292f;
+        }
+        
+        .title {
+            color: #2c3e50;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .summary-box {
+            background: white;
+            border-left: 5px solid #8b292f;
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 1000px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .summary-title {
+            color: #8b292f;
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .summary-text {
+            color: #2c3e50;
+            font-size: 1.1em;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        .summary-highlight {
+            color: #8b292f;
+            font-weight: 700;
+        }
+        
+        .phases-wrapper {
+            margin: 60px 0;
+            position: relative;
+        }
+        
+        .phases-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            position: relative;
+        }
+        
+        .phase {
+            background: white;
+            padding: 35px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .phase-1 {
+            --phase-color: #3498db;
+            border-top: 6px solid #3498db;
+            border-left: 6px solid #3498db;
+            border-bottom: 6px solid #3498db;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        
+        .phase-2 {
+            --phase-color: #f39c12;
+            border-top: 6px solid #f39c12;
+            border-bottom: 6px solid #f39c12;
+            border-left: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+        }
+        
+        .phase-3 {
+            --phase-color: #27ae60;
+            border-top: 6px solid #27ae60;
+            border-right: 6px solid #27ae60;
+            border-bottom: 6px solid #27ae60;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        
+        .phase:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+        
+        .phase-header {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .phase-number-label {
+            color: var(--phase-color);
+            font-size: 0.9em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        
+        .phase-number {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--phase-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            font-weight: 700;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 15px;
+        }
+        
+        .phase-title {
+            color: #2c3e50;
+            font-size: 1.8em;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+        
+        .phase-goal {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--phase-color);
+        }
+        
+        .goal-label {
+            color: var(--phase-color);
+            font-weight: 700;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+        
+        .goal-text {
+            color: #2c3e50;
+            font-size: 1.05em;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        
+        .kpi-section {
+            margin: 20px 0;
+        }
+        
+        .kpi-label {
+            color: #8b292f;
+            font-weight: 700;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+        
+        .kpi-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .kpi-tag {
+            background: #eee8dc;
+            color: #2c3e50;
+            padding: 7px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            border: 2px solid var(--phase-color);
+        }
+        
+        .actions-section {
+            margin-top: 25px;
+            flex-grow: 1;
+        }
+        
+        .actions-title {
+            color: #2c3e50;
+            font-size: 0.95em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+        
+        .actions-list {
+            list-style: none;
+        }
+        
+        .action-item {
+            background: #f8f9fa;
+            padding: 14px 15px 14px 38px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 3px solid var(--phase-color);
+            transition: all 0.2s ease;
+            position: relative;
+            font-size: 0.9em;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .action-item::before {
+            content: '→';
+            position: absolute;
+            left: 14px;
+            top: 14px;
+            color: var(--phase-color);
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        .action-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .big-money {
+            color: #8b292f;
+            font-weight: 700;
+        }
+        
+        .connection-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 3px;
+            background: #8b292f;
+            z-index: 5;
+        }
+        
+        .connection-arrow::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: -5px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid #8b292f;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+        
+        .arrow-1 {
+            left: calc(33.33% - 20px);
+        }
+        
+        .arrow-2 {
+            left: calc(66.66% - 20px);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+        }
+        
+        .footer-logo {
+            width: 200px;
+            opacity: 0.85;
+        }
+        
+        @media (max-width: 1200px) {
+            .phases-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .phase-1, .phase-2, .phase-3 {
+                border-radius: 15px !important;
+                border: 6px solid var(--phase-color) !important;
+            }
+            
+            .logo-container {
+                position: static;
+                margin: 0 auto 20px;
+                width: 150px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .title {
+                font-size: 2em;
+            }
+            
+            .phase {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Google Ads Campaign Philosophy</h1>
+        </div>
+        
+        <div class="summary-box">
+            <div class="summary-title">Summary Focus</div>
+            <div class="summary-text">
+                <span class="summary-highlight">Go for Big Money Service</span> — prioritize campaigns, keywords, and budgets around the highest-value legal services that drive meaningful revenue.
+            </div>
+        </div>
+        
+        <div class="phases-wrapper">
+            <div class="phases-container">
+                <div class="phase phase-1">
+                    <div class="phase-header">
+                        <div class="phase-number-label">Phase 1</div>
+                        <div class="phase-number">1</div>
+                        <div class="phase-title">VISIBILITY</div>
+                    </div>
+                    
+                    <div class="phase-goal">
+                        <div class="goal-label">Primary Goal</div>
+                        <div class="goal-text">Generate impressions and clicks to gather initial data</div>
+                    </div>
+                    
+                    <div class="kpi-section">
+                        <div class="kpi-label">Key KPIs</div>
+                        <div class="kpi-items">
+                            <span class="kpi-tag">Impressions</span>
+                            <span class="kpi-tag">Clicks</span>
+                            <span class="kpi-tag">CTR</span>
+                            <span class="kpi-tag">Reach</span>
+                        </div>
+                    </div>
+                    
+                    <div class="actions-section">
+                        <h4 class="actions-title">Key Actions</h4>
+                        <ul class="actions-list">
+                            <li class="action-item">Launch the campaign using phrase and exact match keywords to optimize traffic quality from the start</li>
+                            <li class="action-item">Establish a baseline test budget</li>
+                            <li class="action-item">Monitor ad visibility and reach to ensure proper delivery</li>
+                            <li class="action-item">Identify high-potential, high-value (<span class="big-money">"big money"</span>) keywords for future scaling</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="phase phase-2">
+                    <div class="phase-header">
+                        <div class="phase-number-label">Phase 2</div>
+                        <div class="phase-number">2</div>
+                        <div class="phase-title">QUALITY</div>
+                    </div>
+                    
+                    <div class="phase-goal">
+                        <div class="goal-label">Primary Goal</div>
+                        <div class="goal-text">Improve lead quality while maintaining click volume</div>
+                    </div>
+                    
+                    <div class="kpi-section">
+                        <div class="kpi-label">Key KPIs</div>
+                        <div class="kpi-items">
+                            <span class="kpi-tag">Traffic Quality</span>
+                            <span class="kpi-tag">Lead Quality</span>
+                            <span class="kpi-tag">Conversion Rate</span>
+                            <span class="kpi-tag">Time on Site</span>
+                            <span class="kpi-tag">Bounce Rate</span>
+                        </div>
+                    </div>
+                    
+                    <div class="actions-section">
+                        <h4 class="actions-title">Key Actions</h4>
+                        <ul class="actions-list">
+                            <li class="action-item">Tighten targeting around high-intent, high-value keywords</li>
+                            <li class="action-item">Exclude keywords that attract low-quality or irrelevant traffic</li>
+                            <li class="action-item">Maintain stable click volume and consistent spend levels</li>
+                            <li class="action-item">Analyze user engagement patterns to isolate profitable traffic sources</li>
+                            <li class="action-item">Refine ad copy and creatives to attract premium-value clients aligned with <span class="big-money">"big money services"</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="phase phase-3">
+                    <div class="phase-header">
+                        <div class="phase-number-label">Phase 3</div>
+                        <div class="phase-number">3</div>
+                        <div class="phase-title">EFFICIENCY</div>
+                    </div>
+                    
+                    <div class="phase-goal">
+                        <div class="goal-label">Primary Goal</div>
+                        <div class="goal-text">Reduce cost per lead while increasing total lead volume</div>
+                    </div>
+                    
+                    <div class="kpi-section">
+                        <div class="kpi-label">Key KPIs</div>
+                        <div class="kpi-items">
+                            <span class="kpi-tag">CPL</span>
+                            <span class="kpi-tag">Conversion Volume</span>
+                        </div>
+                    </div>
+                    
+                    <div class="actions-section">
+                        <h4 class="actions-title">Key Actions</h4>
+                        <ul class="actions-list">
+                            <li class="action-item">Optimize CPC bids to balance cost and scalability</li>
+                            <li class="action-item">Expand budget allocation on proven high-performing segments</li>
+                            <li class="action-item">Maintain continuous A/B testing and strict cost control to improve ROI</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="connection-arrow arrow-1"></div>
+            <div class="connection-arrow arrow-2"></div>
+        </div>
+    </div>
+</body>
+</html>
